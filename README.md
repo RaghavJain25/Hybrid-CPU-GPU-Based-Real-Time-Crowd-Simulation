@@ -1,105 +1,195 @@
 # Hybrid CPU-GPU Based Real-Time Crowd Simulation
 
-A high-performance real-time crowd simulation system built using a hybrid CPU–GPU architecture to simulate large-scale evacuation and crowd movement scenarios efficiently.
+## 🚀 Project Overview
 
-## Overview
+Hybrid CPU-GPU Based Real-Time Crowd Simulation is a high-performance parallel computing project designed to simulate realistic crowd movement and evacuation behavior in real time.
 
-This project implements a scalable crowd simulation framework capable of handling thousands of agents in real time using parallel computing principles. The system models realistic crowd behavior using the Boids algorithm and accelerates computationally intensive tasks through GPU parallelization.
+The project leverages the computational power of GPUs to efficiently process large-scale agent interactions while maintaining smooth simulation performance. Traditional CPU-based crowd simulations struggle to handle dense environments due to quadratic computational complexity. This project overcomes that limitation using a hybrid CPU–GPU architecture.
 
-The project was developed as part of the Parallel and Distributed Computing (UCS645) course at Thapar Institute of Engineering and Technology.
+The system is capable of simulating up to 20,000+ agents while preserving realistic crowd dynamics such as congestion, collision avoidance, bottleneck formation, and lane development.
 
 ---
 
-## Features
+# 📌 Key Features
 
 - Real-time crowd simulation
-- Hybrid CPU–GPU execution model
+- Hybrid CPU-GPU architecture
+- Massive parallel processing using CUDA
 - Boids-based behavioral modeling
-- Collision avoidance and path navigation
-- Scalable architecture supporting up to 20,000 agents
-- GPU accelerated parallel computation
-- Crowd density visualization and heatmapping
-- Performance benchmarking and FPS analysis
+- Dynamic collision avoidance
+- Multi-agent path navigation
+- Crowd density heatmap visualization
+- Performance benchmarking
+- Scalable simulation framework
+- Realistic evacuation behavior
+- Interactive simulation environment
 
 ---
 
-## Technologies Used
+# 🧠 Problem Statement
 
-- C++
-- CUDA
-- Parallel Computing
-- OpenGL / Graphics Rendering
-- GPU Programming
-- Data Visualization
+Traditional crowd simulation systems become computationally expensive as the number of agents increases. Since every agent continuously interacts with neighboring agents, the complexity grows rapidly.
 
----
+This project addresses the challenge of:
 
-## Core Concepts
+- Maintaining real-time responsiveness
+- Efficiently handling thousands of agents
+- Preserving behavioral realism
+- Reducing CPU bottlenecks
+- Optimizing computational throughput
 
-The simulation is based on the following Boids behavioral rules:
-
-- Separation – Avoid collisions between agents
-- Alignment – Match velocity with nearby agents
-- Cohesion – Move toward neighboring group centers
-
-The GPU handles parallel agent interaction calculations while the CPU manages rendering, control flow, and user interaction.
+The solution uses GPU parallelization to accelerate interaction calculations and maintain stable frame rates under dense crowd conditions.
 
 ---
 
-## Performance Highlights
+# ⚙️ System Architecture
 
-- Simulates up to 20,000 agents
-- Maintains real-time responsiveness
-- Achieves significant speedup compared to CPU-only implementations
-- Demonstrates scalable parallel execution
+## CPU Responsibilities
+- Rendering and visualization
+- User interaction
+- Simulation control flow
+- Data initialization
+- GUI handling
 
----
-
-## Results
-
-The hybrid CPU–GPU implementation showed:
-
-- Higher FPS stability under dense crowd conditions
-- Lower execution time per frame
-- Improved computational throughput
-- Realistic crowd behaviors such as:
-  - Bottleneck formation
-  - Lane formation
-  - Density-based congestion visualization
+## GPU Responsibilities
+- Parallel agent interaction calculations
+- Velocity updates
+- Position updates
+- Collision handling
+- Boids rule computation
 
 ---
 
-## Applications
+# 🧩 Core Behavioral Rules
 
-- Evacuation planning
-- Smart city simulations
-- Pedestrian traffic analysis
+The simulation is based on the famous **Boids Model** introduced by Craig Reynolds.
+
+Each agent follows three core behaviors:
+
+## 1. Separation
+Agents avoid collisions with nearby agents.
+
+## 2. Alignment
+Agents align their movement direction with neighboring agents.
+
+## 3. Cohesion
+Agents move toward the average position of nearby agents.
+
+These simple rules collectively produce realistic emergent crowd behavior.
+
+---
+
+# 📊 Mathematical Model
+
+Velocity update equation:
+
+vᵢ(t + 1) = vᵢ(t) + wₛSᵢ + wₐAᵢ + w𝒸Cᵢ
+
+Where:
+- Sᵢ = Separation vector
+- Aᵢ = Alignment vector
+- Cᵢ = Cohesion vector
+
+The computational complexity of traditional implementations is:
+
+O(N²)
+
+GPU parallelization significantly reduces execution overhead by processing agent interactions simultaneously.
+
+---
+
+# 🔥 Technologies Used
+
+| Technology | Purpose |
+|------------|----------|
+| C++ | Core Simulation Logic |
+| CUDA | GPU Parallel Computing |
+| OpenGL | Graphics Rendering |
+| Parallel Computing | Agent Computation |
+| Data Visualization | Performance Analysis |
+| GPU Programming | Optimization |
+
+---
+
+# 📈 Performance Results
+
+## Simulation Capacity
+- Supports 100 – 20,000 agents
+
+## Performance Improvements
+- 20x–40x higher throughput compared to CPU-only implementation
+- Stable FPS during dense crowd simulations
+- Significant reduction in execution time per frame
+
+## Realistic Crowd Behaviors
+- Bottleneck formation
+- Lane formation
+- Congestion patterns
+- Density heatmapping
+
+---
+
+# 📉 Benchmark Analysis
+
+The hybrid architecture demonstrates:
+
+✅ Lower execution time  
+✅ Better scalability  
+✅ Higher FPS stability  
+✅ Improved computational throughput  
+✅ Real-time responsiveness  
+
+Compared to traditional CPU-only implementations, the GPU-accelerated system maintains efficient processing even under extreme crowd density.
+
+---
+
+# 🖥️ Simulation Workflow
+
+1. Initialize agents randomly
+2. Assign exit targets
+3. Compute neighboring agents
+4. Apply Boids behavioral rules
+5. Update velocities and positions
+6. Render updated simulation
+7. Repeat in real time
+   
+---
+
+# 🎯 Applications
+
+This project can be applied in:
+
+- Smart city planning
+- Emergency evacuation systems
+- Crowd management
 - Swarm robotics
+- Pedestrian traffic analysis
 - Intelligent transportation systems
+- Disaster response simulations
 
 ---
 
-## Future Improvements
+# 🔮 Future Enhancements
 
-- Multi-GPU support
+- Multi-GPU acceleration
 - AI-driven crowd prediction
-- Dynamic obstacle handling
-- 3D environment simulation
 - Reinforcement learning integration
+- 3D simulation environments
+- Dynamic obstacle avoidance
+- Real-world map integration
+- Cloud-based simulation scaling
 
 ---
 
-## Authors
+# 🏆 Learning Outcomes
 
-- Raghav Jain
-- Narhar Singh
-- Harkirat Singh
+Through this project, we explored:
 
-Under the guidance of Dr. Saif Nalband  
-Thapar Institute of Engineering and Technology
+- GPU programming concepts
+- CUDA parallel execution
+- Hybrid CPU-GPU workload distribution
+- Real-time simulation systems
+- Performance optimization
+- Scalable software architecture
 
 ---
-
-## License
-
-This project is licensed under the MIT License.
